@@ -1,0 +1,16 @@
+PrecursorMz	ProductMz	PrecursorCharge	ProductCharge	LibraryIntensity	NormalizedRetentionTime	PeptideSequence	ModifiedPeptideSequence	PeptideGroupLabel	LabelType	CompoundName	SumFormula	SMILES	Adducts	ProteinId	UniprotId	GeneName	FragmentType	FragmentSeriesNumber	Annotation	CollisionEnergy	PrecursorIonMobility	TransitionGroupId	TransitionId	Decoy	DetectingTransition	IdentifyingTransition	QuantifyingTransition	Peptidoforms
+142.008613	94.005241	1	NA	1	117.983					Methamidophos	C2H8NO2PS		M+H+					-1	CH4NO2P	-1	-1	0_Methamidophos_0	0_0_Methamidophos_0	0	1	0	1	
+142.008613	124.982063	1	NA	0.310731441	117.983					Methamidophos	C2H8NO2PS		M+H+					-1	C2H5O2PS	-1	-1	0_Methamidophos_0	0_1_Methamidophos_0	0	1	0	1	
+142.008613	63.994677	1	NA	0.30699414	117.983					Methamidophos	C2H8NO2PS		M+H+					-1	H2NOP	-1	-1	0_Methamidophos_0	0_2_Methamidophos_0	0	1	0	1	
+218.103636	105.044725	1	NA	1	147.797					Pymetrozin	C10H11N5O		M+H+					-1	C6H4N2	-1	-1	0_Pymetrozin_6	0_0_Pymetrozin_6	0	1	0	1	
+218.103636	78.033826	1	NA	0.077665567	147.797					Pymetrozin	C10H11N5O		M+H+					-1	C5H3N	-1	-1	0_Pymetrozin_6	0_1_Pymetrozin_6	0	1	0	1	
+218.103636	79.041651	1	NA	0.064585663	147.797					Pymetrozin	C10H11N5O		M+H+					-1	C5H4N	-1	-1	0_Pymetrozin_6	0_2_Pymetrozin_6	0	1	0	1	
+265.042359	208.020895	1	NA	1	266.657					Sulfadiazole	C7H12N4O3S2		M+H+					-1	C5H9N3O2S2	-1	-1	0_Sulfadiazole_7	0_0_Sulfadiazole_7	0	1	0	1	
+265.042359	161.97903	1	NA	0.688923538	266.657					Sulfadiazole	C7H12N4O3S2		M+H+					-1	C3H3N3OS2	-1	-1	0_Sulfadiazole_7	0_1_Sulfadiazole_7	0	1	0	1	
+265.042359	57.044725	1	NA	0.513929546	266.657					Sulfadiazole	C7H12N4O3S2		M+H+					-1	C2H4N2	-1	-1	0_Sulfadiazole_7	0_2_Sulfadiazole_7	0	1	0	1	
+256.929855	109.004907	1	NA	1	254.621					Trichlorfon	C4H8Cl3O4P		M+H+					-1	C2H5O3P	-1	-1	0_Trichlorfon_5	0_0_Trichlorfon_5	0	1	0	1	
+256.929855	78.994342	1	NA	0.301900089	254.621					Trichlorfon	C4H8Cl3O4P		M+H+					-1	CH3O2P	-1	-1	0_Trichlorfon_5	0_1_Trichlorfon_5	0	1	0	1	
+256.929855	82.944805	1	NA	0.074293263	254.621					Trichlorfon	C4H8Cl3O4P		M+H+					-1	ClOP	-1	-1	0_Trichlorfon_5	0_2_Trichlorfon_5	0	1	0	1	
+288.048763	58.02874	1	NA	1	257.103					Vamidothion	C8H18NO4PS2		M+H+					-1	C2H3NO	-1	-1	0_Vamidothion_1	0_0_Vamidothion_1	0	1	0	1	
+288.048763	58.065126	1	NA	0.461795181	257.103					Vamidothion	C8H18NO4PS2		M+H+					-1	C3H7N	-1	-1	0_Vamidothion_1	0_1_Vamidothion_1	0	1	0	1	
+288.048763	86.06004	1	NA	0.404090405	257.103					Vamidothion	C8H18NO4PS2		M+H+					-1	C4H7NO	-1	-1	0_Vamidothion_1	0_2_Vamidothion_1	0	1	0	1	
