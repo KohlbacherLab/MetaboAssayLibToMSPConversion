@@ -24,18 +24,42 @@ from pyopenms import *
 class entry:
     def __init__(self,
                  name = "",
-                 exactmass = 0.0,
+                 precursor_mz = 0.0,
+                 precursor_type = "", # Adduct
+                 instrumenttype = "",
+                 instrument = "",
+                 authors = "",
+                 license = "",
+                 smiles = "",
+                 inchi = "",
+                 inchikey = "",
+                 collisionenergy = "",
                  formula = "",
                  retentiontime = 0.0,
                  ionmode = "",
+                 massbankaccession = "",
+                 links = "",
+                 comment = "",
                  numberoffragments = 0,
                  fragment_mz = [],
                  fragment_int = []):
         self.name = name
-        self.exactmass = exactmass
+        self.precursor_mz = precursor_mz
+        self.precursor_type = precursor_type 
+        self.instrumenttype = instrumenttype
+        self.instrument = instrument
+        self.authors = authors
+        self.license = license
+        self.smiles = smiles
+        self.inchi = inchi
+        self.inchikey = inchikey
+        self.collisionenergy = collisionenergy
         self.formula = formula
         self.retentiontime = retentiontime
         self.ionmode = ionmode
+        self.massbankaccession = massbankaccession
+        self.links = links
+        self.comment = comment
         self.numberoffragments = numberoffragments
         self.fragment_mz = fragment_mz
         self.fragment_int = fragment_int
@@ -129,7 +153,8 @@ def main(openmslib, msp, removedecoys):
         if tgid == None or tgid == current_tgid and index != last_row :
             # add relevant entries
             msp_entry.name = row["CompoundName"]
-            msp_entry.exactmass = EmpiricalFormula(row['SumFormula']).getMonoWeight() # exact mass 
+            msp_entry.precursor_mz = row['PrecursorMz']
+            msp_entry.precursor_type = row['Adducts']
             msp_entry.formula = row['SumFormula']
             msp_entry.retentiontime = row['NormalizedRetentionTime']
             # infer ion mode based on adduct charge
@@ -141,9 +166,12 @@ def main(openmslib, msp, removedecoys):
             # add fragment mz / int
             msp_entry.fragment_mz.append(row['ProductMz'])
             msp_entry.fragment_int.append(row['LibraryIntensity'])
+            # add fragment peak annotation as comment
+            msp_entry.comment += str(row['Annotation'] + " ")
         elif index == last_row: #last row 
             msp_entry.fragment_mz.append(row['ProductMz'])
             msp_entry.fragment_int.append(row['LibraryIntensity'])
+            msp_entry.comment += str(row['Annotation'] + " ")
             msp_entry.numberoffragments = len(msp_entry.fragment_mz)
             msp_entries.append(msp_entry)
             msp_entry = entry()
@@ -157,6 +185,7 @@ def main(openmslib, msp, removedecoys):
             msp_entry = entry()
             msp_entry.fragment_mz = [row['ProductMz']]
             msp_entry.fragment_int = [row['LibraryIntensity']]
+            msp_entry.comment += str(row['Annotation'] + " ")
         tgid = current_tgid
 
     # Write msp file based on datastructure / msp_entry! 
@@ -168,10 +197,22 @@ def main(openmslib, msp, removedecoys):
     with open(msp, 'a') as file:
         for element in msp_entries:
             file.write("NAME: " + element.name + "\n")
-            file.write("EXACTMASS: " + str(element.exactmass) + "\n")
+            file.write("PRECURSORMZ: " + str(element.precursor_mz) + "\n")
+            file.write("PRECURSORTYPE: " + element.precursor_type + "\n")
+            file.write("INSTRUMENTTYPE: " + element.instrumenttype + "\n")
+            file.write("INSTRUMENT: " + element.instrument + "\n")
+            file.write("Authors: " + element.authors + "\n")
+            file.write("License: " + element.license + "\n")
+            file.write("SMILES: " + element.smiles + "\n")
+            file.write("INCHI: " + element.inchi + "\n")
+            file.write("INCHIKEY: " + element.inchikey + "\n")
+            file.write("COLLISIONENERGY: " + element.collisionenergy + "\n")
             file.write("FORMULA: " + element.formula + "\n")
             file.write("RETENTIONTIME: " + str(element.retentiontime) + "\n")
             file.write("IONMODE: " + str(element.ionmode) + "\n")
+            file.write("MASSBANKACCESSION: " + element.massbankaccession + "\n")
+            file.write("Links: " + element.links + "\n")
+            file.write("Comment: " + element.comment + "\n")
             file.write("Num Peaks: " + str(element.numberoffragments) + "\n")
             for i in range(0,len(element.fragment_mz)):
                 file.write(str(element.fragment_mz[i]) + " " + str(element.fragment_int[i]) + "\n")
